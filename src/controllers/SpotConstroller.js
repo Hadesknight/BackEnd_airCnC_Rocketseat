@@ -7,6 +7,9 @@ module.exports = {
 
         const spots = await Spot.find({techs : tech})
         
+        if(!spots){
+            return res.json({message: "Sem Nenhum Cadastrado"})
+        }
         return res.json(spots)
     },
 
@@ -35,5 +38,8 @@ module.exports = {
 
         return res.json(spot)
 
-    }
+    },
+
+
+
 }
