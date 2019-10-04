@@ -21,6 +21,15 @@ module.exports ={
         })
 
         await booking.populate('spot').populate('user').execPopulate()
+
+        //aqui para usar o socket, estamos pegando o id do usuario que criou o spot em questão
+        const ownerSocket =  req.connectUsers[booking.spot.user]
+
+        //aqui se ele existir, vamos mandar todo o booking para ele, sendo um parametro, e uma resposta, como abaixo
+        if(ownerSocket){
+            req.io.to(ownerSocket).emit('booking_request', booking)
+        }
+
         return res.json(booking)
     }
 }

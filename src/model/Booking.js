@@ -2,10 +2,10 @@ const mongoose = require('mongoose')
 
 const BookingSchema = new mongoose.Schema({
     date : String,
+    approved : Boolean,
     user:{
         type: mongoose.Types.ObjectId,
         ref: 'User',
-        approved : Boolean,
     },
     spot :{
         type: mongoose.Types.ObjectId,
