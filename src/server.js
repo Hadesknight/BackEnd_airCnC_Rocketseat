@@ -7,7 +7,7 @@ const path = require('path')
 
 const app = express()
 
-mongoose.connect("mongodb://hadesknight:fernando23@kamino.mongodb.umbler.com:50590/base_geral",{
+mongoose.connect("mongodb://<Usuario>:<Senha>@kamino.mongodb.umbler.com:50590/base_geral",{
     useNewUrlParser: true,
     useUnifiedTopology:true
 })
